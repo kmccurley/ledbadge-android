@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity
         switch(requestCode) {
             case REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
-                    String value = (String) data.getStringExtra(TEXT);
+                    String value = data.getStringExtra(TEXT);
                     ContentValues values = new ContentValues();
                     values.put(HistoryProvider.MESSAGE, value);
                     values.put(HistoryProvider.LAST_MODIFIED, System.currentTimeMillis()/1000);
@@ -265,6 +265,8 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
             case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
